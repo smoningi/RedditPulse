@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RedditPulse">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Reddit Pulse</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="src/angular.min.js"></script>
+    <script type="text/javascript" src="src/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="src/highstock.src.js"></script>
+    <script type="text/javascript" src="SubRedditController.js"></script>
+    <script type="text/javascript" src="worldnewsDirective.js"></script>
+  </head>
+
+  <body>
+  
+    <div id="wrapper">
+      
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <img src="large_pulse.jpg" alt="Reddit Pulse"> 
+          <li><a href="index.html">r/gaming</a></li>
+          <li><a href="politics.html">r/politics</a></li>
+          <li><a href="worldnews.html">r/worldnews<a></li>
+          <li><a href="hiphop.html">r/hiphopheads</a></li>
+          <li><a href="nfl.html">r/nfl</a></li>
+        </ul>
+      </div>
+          
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <div class="content-header">
+          <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+            Pulse of r/worldnews
+          </h1>
+        </div>
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="lead">Get a pulse on the world's news from r/worldnews and r/news</p>
+            </div>
+            <div class="well">
+          <marquee behavior="scroll" direction="left">
+            <h4>Top Trends: <a>1. China </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>2. US </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>3. Canada </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>4. Obama </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>5. Down Syndrome</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>6. Somalia </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>7. America</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>8. Ben Aflak </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>9. Shutdown </a>&nbsp;&nbsp;&nbsp;&nbsp;<a>10. Reddit </a></h4>
+          </marquee>
+          </div>
+            <div class="col-md-12">
+              <div class="well">
+                <div ng-controller="SubRedditController">
+                  <div class="worldnewsDirective" items="theData"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+	
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!-- Put this into a custom JavaScript file to make things more organized -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+  </body>
+</html>
